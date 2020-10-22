@@ -7,3 +7,6 @@
 * ec2.py Offical script:https://raw.githubusercontent.com/ansible/ansible/stable-2.9/contrib/inventory/ec2.py
 * ec2.ini Offical script: https://raw.githubusercontent.com/ansible/ansible/stable-2.9/contrib/inventory/ec2.ini
 
+# Setup for Server
+* In /etc/ansible/ansible.cfg add following:<br />```private_key_file=path_to_my_key/my_key.pem```<br/>
+```remote_user = ubuntu```
