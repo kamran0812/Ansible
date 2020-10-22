@@ -11,11 +11,7 @@
       copy: src=index.html dest=/usr/share/nginx/html/ mode=0644
 
    
-    - name: Add a line in /etc/nginx/sites-available/default
-      lineinfile: dest=/etc/nginx/sites-available/default
-                  regexp='# Only for nginx-naxsi'
-                  line='location /images {}'       
-    
+
     
 
 
