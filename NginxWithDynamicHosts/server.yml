@@ -1,0 +1,24 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: Installs Nginx web server
+      apt: pkg=nginx state=installed update_cache=true
+      notify:
+        - start nginx
+
+    - name: Upload default index.html for host
+      copy: src=index.html dest=/usr/share/nginx/html/ mode=0644
+
+   
+    - name: Add a line in /etc/nginx/sites-available/default
+      lineinfile: dest=/etc/nginx/sites-available/default
+                  regexp='# Only for nginx-naxsi'
+                  line='location /images {}'       
+    
+    
+
+
+  handlers:
+    - name: start Nginx
+      service: name=nginx state=started
